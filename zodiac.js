@@ -1,4 +1,4 @@
-function year123() {
+function astrology() {
     const mounth = document.getElementById('mounth');
     const day = document.getElementById('day')
     let allday = (mounth.value * 30) + day.value
