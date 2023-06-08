@@ -10,29 +10,70 @@
 </head>
 
 <body>
+
     <div class="full-container">
         <div class="left-container">
             <img id="logo" src="logo.png">
-            <div class="name">First Name</div>
-            <div class="name">Last Name</div>
-            <div class="date">
-                <div class="birthday">Year</div>
-                <div class="birthday">Mounth</div>
-                <div class="birthday" style="margin-right: 10px;">Day</div>
+            <div class="name">
+                <input type="text" class="firstname">
             </div>
-            <button class="continue-button">Continue</button>
+            <div class="name">
+                <input type="text" class="lastname">
+            </div>
+            <div class="date">
+                <div class="birthday">
+                    <input type="number" class="year" min="1800" max="2099" id="year" />
+                </div>
+                <div class="birthday">
+                    <input type="number" class="mounth" min="1" max="12" id="mounth" />
+                </div>
+                <div class="birthday" style="margin-right: 10px;">
+                    <input type="number" class="day" min="1" max="31" id="day" />
+                </div>
+            </div>
+            <button class="continue-button" onclick="year123()">Continue</button>
+            <script src="zodiac.js" type="text/javascript"></script>
         </div>
         <div class="right-container">
             <div class="container">
-                <div class="description"></div>
-                <div class="description"></div>
-                <div class="description"></div>
+                <div class="description">
+                    <p class="right-paragraph">Astronomy is a natural science that studies celestial objects and
+                        phenomena. It uses mathematics, physics, and chemistry in order to explain their origin and
+                        evolution. Objects of interest include planets, moons, stars, nebulae, galaxies,
+                        meteoroid, asteroid, and comets. Relevant phenomena include supernova explosions,
+                        gamma ray bursts, quasars, blazars, pulsars, and cosmic microwave background radiation.
+                        More generally, astronomy studies everything that originates beyond Earth's atmosphere.
+                    </p>
+                </div>
+                <div class="description">
+                    <p class="right-paragraph">
+                        Cosmology is a branch of astronomy that studies the universe as a whole. Astronomy is one
+                        of the oldest natural sciences. The early civilizations in recorded history made methodical
+                        observations of the night sky. These include the Egyptians, Babylonians, Greeks, Indians,
+                        Chinese,
+                        Maya, and many ancient indigenous peoples of the Americas. In the past, astronomy included
+                        disciplines as
+                        diverse as astrometry
+                        , celestial navigation, observational astronomy, and the making of calendars.</p>
+                </div>
+                <div class="description">
+                    <p class="right-paragraph">
+                        Cosmology is a branch of astronomy that studies the universe as a whole. Astronomy is one
+                        of the oldest natural sciences. The early civilizations in recorded history made methodical
+                        observations of the night sky. These include the Egyptians, Babylonians, Greeks, Indians,
+                        Chinese,
+                        Maya, and many ancient indigenous peoples of the Americas. In the past, astronomy included
+                        disciplines as
+                        diverse as astrometry
+                        , celestial navigation, observational astronomy, and the making of calendars.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
     <footer>
         <div class="footer">
-            <p class="footer-word">Powered by Mr.Tuvshuu</p>
+            <p class="footer-word">Powered by Tuvshuu</p>
         </div>
     </footer>
 </body>
