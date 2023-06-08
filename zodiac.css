@@ -88,12 +88,27 @@
     border-radius: 18px;
 }
 
+.year::placeholder {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .mounth {
     align-self: center;
     width: 130px;
     height: 50px;
     border: none;
     border-radius: 18px;
+}
+
+.mounth::placeholder {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.day::placeholder {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .day {
