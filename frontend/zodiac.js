@@ -1,15 +1,18 @@
-function astrology() {
+async function astrology() {
     const m = document.getElementById('mounth')
     const d = document.getElementById('day')
     let month = Number(m.value)
     let day = Number(d.value)
     let zodiacSign = {}
     if ((month === 1 && day >= 20) || (month === 2 && day <= 18)) {
-        fetchInject([
-            'http://localhost:3000'
-        ]).then(() => {
-            let astrology = astrology.assign(zodiacSign)
-        })
+        const response = await fetch("http://localhost:3000?month=" + month);
+        const jsonData = await response.json();
+        zodiacSign.name = jsonData.name
+        zodiacSign.description = jsonData.description//'Smart, creative, and deeply intuitive, Pisces can be close to psychic. Pisces feel things deeply, and have incredibly strong gut reactions. A Pisces "knows" things from deep within, and can often judge whether a person or situation is good or bad. That does not mean a Pisces ignores the logical part of their brain, though. Deeply intelligent, Pisces have a profound respect for the power of the human mind. Is it a surprise that Albert Einstein was a Pisces? Pisces signs are sensitive, and get along well in small groups of people. Sometimes, a Pisces may feel like they have an internal and external self, and they may need to spend a lot of time solo to recalibrate those two halves of themselves. A Pisces is rarely lonely when they are by themselves, and have an active imagination. Creative, Pisces love spending time reading, exploring or creating art or music, and understanding their emotions through art. Those with the Pisces sign may seem quiet but they are incredibly strong and have a very strong sense of right and wrong. Their moral compass, along with their gut, guides them well. When a Pisces speaks up, people listen. Pisces tend to take in everything around them, and they are great people to ask for advice on pretty much anything. While Pisces has strong convictions about the best way for them to live, they have a "live and let live" approach when it comes to others, and are accepting and nonjudgmental of all. The realization that life is so much more than what we see. Pisces sign is in tune with the magic of everyday existence and can find beauty in all situations, even ones that may cause tears. Recognizing these moments of beauty and being able to share them with others is what makes Pisces a creative sign, and is also what makes Pisces a soulful sign. '
+        zodiacSign.image = 'https://cdn.pixabay.com/photo/2019/07/31/06/10/zodiac-sign-4374416_640.jpg'
+
+        console.log(jsonData);
+        console.log("KKKKkk")
     } else if ((month === 2 && day >= 19) || (month === 3 && day <= 20)) {
         zodiacSign.name = 'Pisces'
         zodiacSign.description = 'Smart, creative, and deeply intuitive, Pisces can be close to psychic. Pisces feel things deeply, and have incredibly strong gut reactions. A Pisces "knows" things from deep within, and can often judge whether a person or situation is good or bad. That does not mean a Pisces ignores the logical part of their brain, though. Deeply intelligent, Pisces have a profound respect for the power of the human mind. Is it a surprise that Albert Einstein was a Pisces? Pisces signs are sensitive, and get along well in small groups of people. Sometimes, a Pisces may feel like they have an internal and external self, and they may need to spend a lot of time solo to recalibrate those two halves of themselves. A Pisces is rarely lonely when they are by themselves, and have an active imagination. Creative, Pisces love spending time reading, exploring or creating art or music, and understanding their emotions through art. Those with the Pisces sign may seem quiet but they are incredibly strong and have a very strong sense of right and wrong. Their moral compass, along with their gut, guides them well. When a Pisces speaks up, people listen. Pisces tend to take in everything around them, and they are great people to ask for advice on pretty much anything. While Pisces has strong convictions about the best way for them to live, they have a "live and let live" approach when it comes to others, and are accepting and nonjudgmental of all. The realization that life is so much more than what we see. Pisces sign is in tune with the magic of everyday existence and can find beauty in all situations, even ones that may cause tears. Recognizing these moments of beauty and being able to share them with others is what makes Pisces a creative sign, and is also what makes Pisces a soulful sign. '
