@@ -14,25 +14,19 @@ const connection = mysql.createConnection({
     database: 'zodiacdb'
 })
 
-
-app.get('/', (req, res) => {
-    connection.connect()
-    connection.query('select * from zodiac', (err, rows, fields) => {
-        if (err) throw err
-
-        console.log(rows[0])
-        res.send(rows)
-    })
-})
-
 app.get('/', async (req, res) => {
     const month = Number(req.query.month)
     const day = Number(req.query.day)
+    connection.connect()
+    connection.query('select * from zodiac', (err, rows, fields) => {
+        if (err) throw err
+        res.send(rows)
+    })
     if ((month === 1 && day >= 20) || (month === 2 && day <= 18)) {
         res.send({
-            name: 'Aquarius',
-            description: 'Independent and enigmatical, Aquarians are unique. There is no one quite like an Aquarius, and because each is so incredibly individual, it can be tough to describe them as a group. Aquarians do not like labels, and may shy away from any adjective—even the good ones you might bestow upon them. Aquarians believe in the nature of change and evolution, and even though they are a fixed sign, they may not necessarily believe they are the "same" people they were when they were born.  Aquarians have a strong sense of social justice and making the world a better place, and see themselves as just one link in an endless human chain. They are very concerned about others, not because of how others treat them or how they want others to treat them. Aquarius is intellectual and analytical, but do not mistake these attributes for aloofness. Aquarians have deep passion, but they know jumping into something too quickly can cause more harm than good. Aquarians are often big-picture thinkers who can see connections in a way that eludes others. Aquarians have energy, warmth, and a deep desire to get things done. They feel they are on the planet to change the world and they will do so. Aquarians are idealistic, and will never accept "good enough" until they truly believe it is good enough. Aquarians can sometimes seem as if they do not care about their individual relationships, or they are holding something else at a higher value. For example, an Aquarian may cancel a date at the last minute because a friend or family member is stuck and needs a ride. It is not personal, and it is not a bad thing. An Aquarian has a value system that is constantly prioritizing the people who need them the most, and sometimes, that puts the people they love in a lurch. Clear communication is necessary to avoid these issues. Their belief in the innate goodness of people. An Aquarian will never doubt you, even when you doubt yourself. Their ability to see the best in all people, even if people do not see those qualities in themselves. Aquarians can lift people up, lightening the mood in the process.',
-            image: 'https://cdn.pixabay.com/photo/2019/07/31/06/10/zodiac-sign-4374415_640.jpg'
+            name: rows[0].name,
+            description: rows[0].description,
+            image: rows[0].image
         })
     }
     else if ((month === 2 && day >= 19) || (month === 3 && day <= 20)) {

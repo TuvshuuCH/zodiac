@@ -5,10 +5,8 @@ async function astrology() {
     let day = Number(d.value)
     let zodiacSign = {}
 
-
     const response = await fetch(`http://localhost:3000?query.month=${month}&day=${day}`);
     const jsonData = await response.json();
-
 
     zodiacSign.name = jsonData.name
     zodiacSign.description = jsonData.description
