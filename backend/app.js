@@ -1,9 +1,29 @@
 const express = require('express')
 var cors = require('cors')
+const mysql = require('mysql2')
+
 const app = express()
 const port = 3000
 
 app.use(cors())
+
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'Jarraj98.',
+    database: 'zodiacdb'
+})
+
+
+app.get('/', (req, res) => {
+    connection.connect()
+    connection.query('select * from zodiac', (err, rows, fields) => {
+        if (err) throw err
+
+        console.log(rows[0])
+        res.send(rows)
+    })
+})
 
 app.get('/', async (req, res) => {
     const month = Number(req.query.month)
